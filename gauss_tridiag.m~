@@ -1,0 +1,12 @@
+function [x, L_sub, U_hoofd, U_super, y] = gauss_tridiag(A_sub, A_hoofd, A_super, b) 
+
+n = size(A_hoofd);
+A = zeros(n, n);
+
+for i = 1:n
+    A(i,i] = A_hoofd[i];
+end
+    
+disp(A_sub);
+    
+end
