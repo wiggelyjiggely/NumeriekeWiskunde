@@ -17,14 +17,17 @@ disp("Test Cases");
 %Test dat Ux = y
 [U] = makeUMatrix(U_hoofd, U_super);
 disp("Is Ux=y: " + isMatrixEqual(U*x,y));
+disp(U);
 
 %Test dat b = Le*y
 [L] = makeLMatrix(L_sub);
 disp("Is b = Le*y: " + isMatrixEqual(b, L*y));
+disp(L)
 
 %Test dat A = Le * U
 [A] = makeAMatrix(A_subTest, A_hoofdTest, A_superTest);
 disp("Is A = Le*U: " + isMatrixEqual(A, L*U));
+disp(A);
 
 end
 

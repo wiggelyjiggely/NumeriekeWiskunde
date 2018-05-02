@@ -40,6 +40,10 @@ for i = 1:n
        U(i,i) = A(i,i);
        U_hoofd(i,1) = A(i,i);
    else
+       if (U(i-1, i-1) == 0) 
+           disp('Geen oplossing door een deling door 0')
+           return;
+       end
        U(i,i) = A(i,i) - (A(i, i-1)/ U(i-1, i-1)) * U(i-1, i);
        U_hoofd(i,1) = A(i,i) - (A(i, i-1)/ U(i-1, i-1)) * U(i-1, i);
    end
