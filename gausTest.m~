@@ -1,13 +1,17 @@
-function [A, U, L, x, L_sub, U_hoofd, U_super, y] = gausTest(A_subTest, A_hoofdTest, A_superTest, b)
+A_hoofdTest = [2,2,2,2];
+A_subTest = [-1,-1,-1];
+A_superTest = [-1,-1,-1];
+
+b = [10; 11; 12; 7];
 
 [x, L_sub, U_hoofd, U_super, y] = gauss_tridiag(A_subTest, A_hoofdTest, A_superTest, b);
 
 % disp("L_sub:");
 % disp(L_sub);
-% disp("U_hoofd:");
-% disp(U_hoofd);
-% disp("U_super:");
-% disp(U_super);
+disp("U_hoofd:");
+disp(U_hoofd);
+disp("U_super:");
+disp(U_super);
 % disp("y:");
 % disp(y);
 
@@ -23,14 +27,14 @@ disp("Is Ux=y: " + isMatrixEqual(U*x,y));
 disp("Is b = Le*y: " + isMatrixEqual(b, L*y));
 
 %Test dat A = Le * U
-[A] = makeAMatrix(A_subTest, A_hoofdTest, A_superTest);
+[A] = makeAMatrix(L_sub, U_hoofd, U_super);
+disp(A)
 disp("Is A = Le*U: " + isMatrixEqual(A, L*U));
-
-end
 
 %Functie om matrix U te genereren uit L_sub, U_hoofd en U_super
 function [A] = makeAMatrix(L_sub, U_hoofd, U_super)
     [m,n] = size(U_hoofd);
+    disp(n);
     A = zeros(n, n);
 
     for i = 1:n

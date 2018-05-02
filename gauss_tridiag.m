@@ -1,7 +1,6 @@
 function [x, L_sub, U_hoofd, U_super, y] = gauss_tridiag(A_sub, A_hoofd, A_super, b) 
 
 [m,n] = size(A_hoofd);
-disp(n);
 A = zeros(n, n);
 
 for i = 1:n
@@ -21,30 +20,38 @@ if(det(A)==0) %% determinante is 0 means no single solution
     return;
 end
 
-disp(A);
-disp(b);
-
 x = mldivide(A, b);
-
-%disp(A);
     
-A_Bewerk = A;
+U = zeros(n, n);
+L = zeros(n,n);
+
+L_sub = zeros(n-1, 1);
+
+U_super = zeros(n-1, 1);
+U_hoofd = zeros(n, 1);
 
 for i = 1:n
-    pivot = A_Bewerk(i,i);
-    deler = 1;
-    if (pivot ~= 1)
-        deler = pivot;
-        for j = 1:n
-            A_Bewerk(i,j) = A_Bewerk(i,j) / pivot;
-        end
-    end
-    
-    for j = i:n
-        
-    end
+   if (i < n)
+       U(i, i+1) = A(i, i+1);
+       U_super(i,1) = A(i, i+1);
+   end
+   
+   if (i == 1)
+       U(i,i) = A(i,i);
+       U_hoofd(i,1) = A(i,i);
+   else
+       U(i,i) = A(i,i) - (A(i, i-1)/ U(i-1, i-1)) * U(i-1, i);
+       U_hoofd(i,1) = A(i,i) - (A(i, i-1)/ U(i-1, i-1)) * U(i-1, i);
+   end
+   
+   L(i,i) = 1;
+   if (i > 1)
+      L(i, i-1) = (A(i, i-1) /  U(i-1, i-1));
+      L_sub(i-1,1) = (A(i, i-1) /  U(i-1, i-1));
+   end
 end
 
-disp(A_Bewerk);
+% y berekenen b = Le*y
+y = mldivide(L, b);
 
 end
