@@ -28,4 +28,23 @@ x = mldivide(A, b);
 
 %disp(A);
     
+A_Bewerk = A;
+
+for i = 1:n
+    pivot = A_Bewerk(i,i);
+    deler = 1;
+    if (pivot ~= 1)
+        deler = pivot;
+        for j = 1:n
+            A_Bewerk(i,j) = A_Bewerk(i,j) / pivot;
+        end
+    end
+    
+    for j = i:n
+        
+    end
+end
+
+disp(A_Bewerk);
+
 end
