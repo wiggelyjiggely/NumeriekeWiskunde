@@ -1,18 +1,10 @@
 function [c] = spline_coeff(x,f)
-c = zeros(length(x), length();
-
-for i = 1:length(x);
-    n = length(f);
-    for j = -3:-1
-
-    end    
-    for j = 0:n-4   
-        [result] = evalBspline(j,3,f,x(i));   
-        coef = coef + result;
-    end
-    for j = n-3:n
-
+n = length(x);
+c = zeros(n-1, n-1);
+for i = 1:n-1
+    for j = 1 :n-1   
+        [result] = evalBspline(j,3,f,x(i)); 
+        c(i,j) = result;
     end
 end
-disp(coef);
-end
+end 
