@@ -1,0 +1,12 @@
+%opdracht 2.4
+
+for n = 5 : 30
+   t = linspace(-1,1,n+6);
+   xz = linspace(-1,1,n);
+   fx = 1./(1+25*x.^2);
+   for x = 1
+   f = 
+   [c] = spline_coeff();
+   [s] = deBoor(t, c, x);
+   
+end
