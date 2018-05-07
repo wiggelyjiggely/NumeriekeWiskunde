@@ -1,5 +1,6 @@
 %opdracht 2.3
-x = [1,2,3,4,5,6];
-f= [2,4,6,8,10,12];
+x = [0;1;2;3;4];
+f= [0;24;24;18;16];
+%[a,b,c,d] = spline_coeff(x,f);
 [c] = spline_coeff(x,f);
 disp(c);
