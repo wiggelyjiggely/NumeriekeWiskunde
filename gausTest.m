@@ -2,16 +2,9 @@ function [A, U, L, x, L_sub, U_hoofd, U_super, y] = gausTest(A_subTest, A_hoofdT
 
 [x, L_sub, U_hoofd, U_super, y] = gauss_tridiag(A_subTest, A_hoofdTest, A_superTest, b);
 
-% disp("L_sub:");
-% disp(L_sub);
-% disp("U_hoofd:");
-% disp(U_hoofd);
-% disp("U_super:");
-% disp(U_super);
-% disp("y:");
-% disp(y);
+%%
+%Testen
 
-%%%%Testen%%%%%
 disp("Test Cases");
 
 %Test dat Ux = y
