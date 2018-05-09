@@ -3,6 +3,7 @@ function [x, L_sub, U_hoofd, U_super, y] = gauss_tridiag(A_sub, A_hoofd, A_super
 [n,m] = size(A_hoofd);
 A = zeros(n, n);
 
+%Make the matrix A from The 3 vectors
 for i = 1:n
     A(i,i) = A_hoofd(i);
 end
@@ -30,6 +31,7 @@ L_sub = zeros(n-1, 1);
 U_super = zeros(n-1, 1);
 U_hoofd = zeros(n, 1);
 
+%Algoritme om U en L te halen uit A
 for i = 1:n
    if (i < n)
        U(i, i+1) = A(i, i+1);
