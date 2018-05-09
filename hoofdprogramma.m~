@@ -132,7 +132,8 @@ end
     title('interpolatiefout');
     xlabel('n') % x-axis label
     ylabel('interpolatiefout') % y-axis label
-    legend('Boor','Lagrange');
+    legend(1) = strcat();
+    legend(2) = strcat();
     %-----------------------------------------------extra functies-----------------------------------------------
 
     
