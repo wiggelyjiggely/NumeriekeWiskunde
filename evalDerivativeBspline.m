@@ -1,5 +1,7 @@
+%recursiebetrekking voor het evalueren van de m-orde afgeleide van 
+% een genormaliseerde B-spline.
 function [result] = evalDerivativeBspline(index,k,t,x,m)
-    if m == 1
+    if m == 0
         [result] = evalBspline(index, k ,t, x); 
     else
         if k == 0

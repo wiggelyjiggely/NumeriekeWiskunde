@@ -1,3 +1,4 @@
+%recursiebetrekking voor het evalueren van genormaliseerde B-splines.
 function [result] = evalBspline(index,k,t,x)
     if k == 0
          if (x >= t(index)) && (x < t(index + 1))
